@@ -1,5 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+:root {
+    --bg-corpo: #f5f5f5;
+    --bg-container: #fff;
+    --shadow-container: 2px 5px 14px 1px rgba(214, 214, 214, 0.819);;
+    --blackgray: #1d232f;
+    --blue-detalhes: #1b356e;
+    --red-detalhes: #db092c;
+    --icon: "";
+}
+
+.dark {
+    --bg-corpo: #4D5955;
+    --bg-container: #36403C;
+    --shadow-container: 0px 7px 16px 3px rgba(54,64,60,0.8);
+    --blackgray: #D9B779;
+    --blue-detalhes: #A68C5D;
+    --red-detalhes: #D9843B;
+    --icon: "";
+}
+
+.dark::before {
+    content: var(--icon);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -8,12 +32,12 @@
 }
 
 html, body {
-    height: 100%;
-    width: 100%;
+    height: 100vh;
+    width: 100vw;
 }
 
 body {
-    background: #f5f5f5;
+    background: var(--bg-corpo);
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -21,10 +45,10 @@ body {
 }
 
 .container {
-    box-shadow: 2px 5px 14px 1px rgba(214, 214, 214, 0.819);
+    box-shadow: var(--shadow-container);
     border-radius: 10px;
     padding: 20px;
-    background: #fff;
+    background: var(--bg-container);
     min-width: 550px;
     max-width: 600px;
     min-height: 600px;
@@ -35,20 +59,40 @@ body {
     height: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 .header h1 {
     font-size: 3rem;
-    margin-right: 3rem;
-    color: #1d232f;
+    color: var(--blackgray);
+}
+
+.header img {
+    width: 10%;
+    height: 50%;
 }
 
 hr {
     margin: 0.5em;
     padding: 0.1em;
     border-radius: 3px;
-    border-top: 3px solid #1d232f;
+    border-top: 3px solid var(--blackgray);
+}
+
+.imgDark img {
+    width: 30px;
+    height: 30px;
+    margin-top: 1rem;
+    color: var(--blackgray);
+    cursor: pointer;
+}
+
+.dark::after {
+    content: src("img/moon-regular.svg");
+}
+
+.light::after {
+    content: src("img/moon-solid.svg");
 }
 
 .group-form {
@@ -65,7 +109,7 @@ hr {
 .group-form label {
     font-size: 1.5em;
     font-weight: 900;
-    color: #1d232f;
+    color: var(--blackgray);
 }
 
 .group-form input {
@@ -73,24 +117,24 @@ hr {
     width: 100%;
     padding: 10px;
     margin: 5px 0;
-    border: 1px solid #ccc;
+    border: 1px solid var(--red-detalhes);
     border-radius: 5px;
     text-transform: uppercase;
 }
 
 .group-form input[type=submit] {
-    background: #1d232f;
+    background: var(--blackgray);
     font-weight: 900;
     font-size: 1rem;
-    color: white;
+    color: var(--red-detalhes);
     letter-spacing: 1px;
     cursor: pointer;
     transition: 0.3s all;
 }
 
 .group-form input[type=submit]:hover {
-    background: #1b356e;
-    color: #1d232f;
+    background: var(--blue-detalhes);
+    color: var(--blackgray);
 }
 
 
@@ -102,17 +146,17 @@ hr {
 }
 
 #imgPokemon img {
-    width: 120px;
+    width: 100px;
     border: 1px solid #333;
     border-radius: 8%;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0,0.5);
+    box-shadow: 0px 7px 16px 3px rgba(82, 107, 97, 0.875);
     margin: 10px;
 }
 
 #content {
     font-family: monospace;
     padding: 10px;
-    background: #db092c;
+    background: var(--red-detalhes);
     border: 1px solid #333;
     border-radius: 5px;
     font-weight: 500;

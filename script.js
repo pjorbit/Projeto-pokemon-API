@@ -1,4 +1,32 @@
 let formulario = document.querySelector('form');
+const theme = window.localStorage.getItem("theme");
+const btn = document.getElementById("darkMode");
+
+//VERIFICAR TEMA ARMAZENADO
+if(theme === "dark") {
+    document.body.classList.add("dark");
+}
+
+//muda o tema ao clicar no botao
+btn.addEventListener("click", () => {
+    document.body.classList.toggle("dark")
+
+    if(theme === "dark") {
+        window.localStorage.setItem("theme", "ligth")
+    } else {
+        window.localStorage.setItem("theme", "dark")
+    }
+})
+
+//muda o icone do tema
+function mudar(e) {
+    if(e.className == 'dark') {
+        e.className = 'light'
+    } else {
+        e.className = 'dark'
+    }
+}
+
 
 formulario.addEventListener('submit', function(e) {
     //bloqueia o refresh da pagina
